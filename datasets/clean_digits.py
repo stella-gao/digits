@@ -33,8 +33,6 @@ def load_speaker_set(speaker_set):
                        
                 filename = filename_pattern % locals()
                 url = url_pattern % locals()
-
-                print url
             
                 path = get_file(filename, origin=url)
                     
