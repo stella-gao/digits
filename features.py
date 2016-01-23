@@ -21,12 +21,14 @@ def frame(x, frame_size, step):
     return framed
 
 
-def spectrogram(x, fft_size):
-    framed = frame(x, fft_size, 1)
+def spectrogram(x, fft_size, window_step):
+    framed = frame(x, fft_size, window_step)
     window = signal.tukey(fft_size, 0.25)
     windowed = framed * window
     fft = np.fft.fft(windowed, axis=1)
-    return np.log(np.abs(fft[:, 0:(fft.shape[1] // 2)].T))
+    power = np.abs(fft[:, 0:(fft.shape[1] // 2)].T)
+    power[power <= 0] = 1e-12
+    return np.log(power)
 
 
 def mel_basis(num_filters, fft_size, fs):
@@ -89,7 +91,33 @@ def mel_basis(num_filters, fft_size, fs):
     return basis
 
 
-def mfsc(x, fft_size, num_filters, fs):
-    sg = spectrogram(x, fft_size)
-    basis = mel_basis(num_filters, fft_size, fs)
+def mfsc(x, fft_size, window_step, basis):
+    sg = spectrogram(x, fft_size, window_step)
     return np.dot(basis, sg)
+
+
+def mfsc_vector(x, fft_size, window_step, num_filters, fs):
+    sg = spectrogram(x, fft_size, window_step)
+    basis = mel_basis(num_filters, fft_size, fs)
+    return mfsc(x, fft_size, window_step, basis)
+
+
+def mfsc_matrix(X, fft_size, window_step, num_filters, fs):
+    """Compute MFSC of each row of X."""
+
+    num_frames = (X.shape[1] - fft_size) // window_step
+    
+    result = np.zeros((X.shape[0], 1, num_filters, num_frames))
+
+    basis = mel_basis(num_filters, fft_size, fs)
+
+    for i in range(X.shape[0]):
+        z = mfsc(X[i, :], fft_size, window_step, basis)
+        if np.any(np.isnan(z)):
+            print i
+            print X[i, :]
+            print np.max(X[i, :])
+            assert False
+        result[i, 0, :, :] = z
+
+    return result
