@@ -43,7 +43,6 @@ def vocode(data, f, n, window_size, h):
 	""" Takes a list of data stretches by factor f
 	or adjust by n semitones using a specified window size
 	and hopsize, h """
-	
 	for i, wav in enumerate(data):
 		out = stretchFunc(wav, f, window_size, h)
 		out = pitchshift(out, n, window_size, h)
