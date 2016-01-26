@@ -27,7 +27,7 @@ fs = 8000
 batch_size = 8
 
 nb_classes = 11
-nb_epoch = 40
+nb_epoch = 100
 
 print('Loading data...')
 # the data, shuffled and split between tran and test sets
