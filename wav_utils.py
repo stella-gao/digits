@@ -10,6 +10,16 @@ def pad_right(data, padded_length):
     return padded
 
 
+def pad_left(data, padded_length):
+    '''Zero-pad a list of vectors by adding zeros to the start.'''
+    padded = np.zeros((len(data), padded_length))
+    for i, wav in enumerate(data):
+        padded[i, :] = np.concatenate(
+            (np.zeros(padded_length - wav.shape[0]),
+             wav))
+    return padded
+
+
 def pad_middle(data, padded_length):
     '''Zero-pad a list of vectors by adding an equal number of zeros to each end.'''
     padded = np.zeros((len(data), padded_length))
