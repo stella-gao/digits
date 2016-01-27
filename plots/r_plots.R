@@ -22,6 +22,9 @@ cnn_2d_plot_loss <-  ggplot(data = plot_df, aes(x = epoch, y = values,
 cnn_2d_plot_loss <-  cnn_2d_plot_loss + geom_line() + geom_point() + theme_bw() + 
                 scale_color_brewer(palette = "Dark2" )
 print(cnn_2d_plot_loss)
+pdf("cnn_2d_plot_loss.pdf")
+print(cnn_2d_plot_loss)
+dev.off()
 
 # 2D CNN acc plot
 plot_df <- subset(cnn_2d_results, key == "acc" | key == "val_acc")
@@ -30,6 +33,10 @@ cnn_2d_plot_acc <-  ggplot(data = plot_df, aes(x = epoch, y = values,
 cnn_2d_plot_acc <-  cnn_2d_plot_acc + geom_line() + geom_point() + theme_bw() + 
   scale_color_brewer(palette = "Dark2" )
 print(cnn_2d_plot_acc)
+pdf("cnn_2d_plot_acc.pdf")
+print(cnn_2d_plot_acc)
+dev.off()
+
 
 cnn_1d_results <- data.frame(
   epoch = rep(1:12, 4),
@@ -56,11 +63,17 @@ cnn_1d_plot_loss <-  ggplot(data = plot_df, aes(x = epoch, y = values,
 cnn_1d_plot_loss <-  cnn_1d_plot_loss + geom_line() + geom_point() + theme_bw() + 
   scale_color_brewer(palette = "Dark2" )
 print(cnn_1d_plot_loss)
+pdf("cnn_1d_plot_loss.pdf")
+print(cnn_1d_plot_loss)
+dev.off()
 
 # 1D CNN acc plot
 plot_df <- subset(cnn_1d_results, key == "acc" | key == "val_acc")
-cnn_2d_plot_acc <-  ggplot(data = plot_df, aes(x = epoch, y = values, 
+cnn_1d_plot_acc <-  ggplot(data = plot_df, aes(x = epoch, y = values, 
                                                 group = key, colour = key))
-cnn_2d_plot_acc <-  cnn_2d_plot_acc + geom_line() + geom_point() + theme_bw() + 
+cnn_1d_plot_acc <-  cnn_1d_plot_acc + geom_line() + geom_point() + theme_bw() + 
   scale_color_brewer(palette = "Dark2" )
+print(cnn_1d_plot_acc)
+pdf("cnn_1d_plot_acc.pdf")
 print(cnn_2d_plot_acc)
+dev.off()
