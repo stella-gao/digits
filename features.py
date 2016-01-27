@@ -31,15 +31,16 @@ def spectrogram(x, fft_size, window_step):
     return np.log(power)
 
 
+def hz2mel(hz):
+    return np.log(1.0 + hz / 700.0)
+
+
+def mel2hz(mel):
+    return (np.exp(mel) - 1.0) * 700.0
+
+
 def mel_basis(num_filters, fft_size, fs):
-    """Create a basis for projecting an FFT to mel-frequency space."""
-
-    def hz2mel(hz):
-        return np.log(1.0 + hz / 700.0)
-
-    def mel2hz(mel):
-        return (np.exp(mel) - 1.0) * 700.0
-    
+    """Create a basis for projecting an FFT to mel-frequency space."""   
     min_freq = 0
     max_freq = fs / 2.0
 
