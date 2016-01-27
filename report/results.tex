@@ -2,6 +2,7 @@
 \usepackage{nips15submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
 
@@ -18,7 +19,17 @@ Our CNN model consists of eleven layers: two 2D convolution layers followed by a
 \subsection{Convolution Neural Network}
 We split our data into training and test sets, using six speakers for training (three male, three female) and four speakers for the test set (two male, two female). This lead to 132 samples in the training set and 88 samples in the test set. We trained the CNN using a batch size of four. For our loss function, we minimised the categorical-crossentropy.
 
-We began by using the state-of-the-art adadelta optimiser, for training for twelve epochs. For our first runs, we did not augment the data set. We ran the network six times and obtained a wide range of results for the test accuracy. Five of the six results were in the range 0.8750-0.9432, the other was 0.0909 which, with eleven categories, is equivalent to random guessing.
+We began by using the state-of-the-art adadelta optimiser, for training for twelve epochs. For our first runs, we did not augment the data set. We ran the network six times and obtained a wide range of results for the test accuracy. Five of the six results were in the range 0.8750-0.9432, the other was 0.0909 which, with eleven categories, is equivalent to random guessing. The validation and test accuracy for one run, as the number of epochs increases, is shown in Figure \ref{fig:2d_acc}.
+
+\begin{figure}[h]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\fbox{\rule[-.5cm]{0cm}{4cm} 
+\includegraphics{cnn_2d_plot_acc.pdf}
+%\rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Sample figure caption.}
+\end{figure}
 
 We then ran the model with leave-one-out cross-validation (LOOCV), training on nine of the speakers and testing on the tenth. Three times out of 10, the test accuracy was 1, twice it was 0.8636 and the other half of the times it was just 0.0909.
 
