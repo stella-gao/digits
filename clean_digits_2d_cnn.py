@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
+from keras.optimizers import SGD
 from keras.utils import np_utils
 
 from datasets import clean_digits
@@ -28,7 +29,7 @@ nb_classes = 11
 
 # training params
 batch_size = 4
-nb_epoch = 8
+nb_epoch = 20
 
 # the data, shuffled and split between tran and test sets
 (X_train_wav, y_train), (X_test_wav, y_test) = clean_digits.load_data()
@@ -133,7 +134,8 @@ model.add(Activation('relu'))
 model.add(Dense(nb_classes))
 model.add(Activation('softmax'))
 
-model.compile(loss='categorical_crossentropy', optimizer='adadelta')
+sgd = SGD(lr=0.0001, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd)
 
 model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch,
           show_accuracy=True, verbose=1, validation_data=(X_test, Y_test))
