@@ -12,11 +12,36 @@
 
 
 \section{Data}
-Our model is fit to a subset of the TIDIGITS dataset. The dataset contains a series of \textit{.wav} files
+We fit our model to a subset of the TIDIGITS dataset. The data, collected by Texas Instruments, contains audio files of over 300 speakers reciting the digits "zero" (and "oh") through to "nine" a number of times and in a variety of combinations. The dataset includes men, women, and children speaking in a number of dialects. Our subset includes just ten speakers, five men and five women, who repeat each of digit, in isolation, just twice. While the data were originally recorded at 20kHz, our subset is at 8kHz.
+We split the data into a training set (consisting of three male and three female speakers) and a test set (two male and two female). In all, we trained our model on 132 samples and assessed our results on 88 samples.
 
-\subsection{Data augmentation}
+ 
 
-\subsection{•}
+\subsection{Data preprocessing}
+After reading the data as wav files into Python, we processed them prior to analysis. 
+
+\begin{itemize}
+\item \textbf{Normalising} We normalised each of the $.wav$ files to mean 0, standard deviation 1.
+
+\item \textbf{Cropping and padding} As the data were not uniformly padded with silence, we cropped each recording to remove silence at both ends of the audio file. In order to ensure our classifier was invariant to shifts along the time-axis we padded the beginning and end of each sample with silence of varying lengths. 
+
+\item \textbf{Mel-frequency cepstral coefficients}
+The Mel-frequency cepstral coefficients (MFCC) representation of a sound is often used in speech recognition.\cite{abdel2014convolutional} The MFCC aims to more-closely approximate the human auditory system as the frequency bands are equally spaced on the mel scale. 
+
+We derived the MFCC as follows:
+\begin{itemize}
+\item Take the Fourier transform across a Tukey window of the signal
+\item Take the log of these powers
+\item Convert these onto the mel scale using Tukey windows
+\item Take discrete cos of list of mel log powers
+\item MFCC
+\end{itemize}
+\item \textbf{•}
+
+\end{itemize}
+
 
 
 \end{document}
+
+
