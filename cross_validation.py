@@ -1,4 +1,4 @@
-import clean_digits
+from datasets import clean_digits
 
 def load_data_set(train_speakers, test_speakers):
 
