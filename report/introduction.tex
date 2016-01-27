@@ -1,0 +1,20 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips15submit_e,times}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+%\usepackage[natbibapa]{apacite}
+\usepackage{natbib}
+
+\bibliographystyle{plain}
+%\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+
+\begin{document}
+
+\section{Introduction}
+Given audio recordings of ten people reading the digits 0 to 9, we wish to train a computer to take the \texttt{.wav} files and accurately classify the digit being spoken. We follow \cite{abdel2014convolutional} by converting the audio files into mel-frequency spectral coefficients, producing an image that can be inputted into a 2D convolutional neural network (CNN). We also compare this CNN with a recurrent neural network (RNN). 
+\bibliography{digits_bib}
+
+\end{document}
