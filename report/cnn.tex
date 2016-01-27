@@ -64,7 +64,7 @@ A CNN is represented as a list of layers, where each layer transforms an input v
 	\item \textbf{Convolution:} layer computing output of neurons that are connected to a local regions of the input. This is done by performing dot products between region connected and weights. As a result we obtain another volume, for example of size [128x128x12]. The depth parameter is analogous of the number of hidden layers in ANN, and it controls the number of neuron in the Convolution layer that connect the same local region of the input volume. 
 	\item \textbf{Relu:} function that perform elementwise activation of the component of the volume, for example \textit{max}(0, $x$). Notice that in this stage the dimension of the volume is unchanged. 
 	\item \textbf{Max Pooling:} layer that reduces the dimension of the image (width and height), by selecting the maximum entry of a given region. For example, it takes the maximum of a [2x2] window along the spatial dimensions.
-	\item \textbf{Fully connected:} layer that correspond to the final classification of CNN. If there are 10 classes, it will be a [1x1x10] volume containing the score for each category. Fully connected layer have full connections to all activations in the previous layer, as seen in ANN. 
+	\item \textbf{Fully connected:} layer that correspond to the final classification of CNN. If there are 10 classes, it will be a [1x1x10] volume containing the score for each category. Fully connected layer have full connections to all activations in the previous layer, as in ANN. 
 \end{itemize}
 
 In this way, a CNN converts the original input image to the final category score, layer by layer. In the same way of ANN, the parameters of the network will be trained with gradient descent.
