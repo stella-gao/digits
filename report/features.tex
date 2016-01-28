@@ -6,7 +6,7 @@ Using the spectrogram we can read how the frequencies of the audio change over t
 
 The linear spacing of the frequency representation is not representative of human auditory perception, as humans hear multiplicative differencies in frequency as equivalent throughout the auditory range. As such, a shift in pitch - without a change in any other quality of the sound - would create a linear shift in the log-frequency domain, but a more complicated transformation in the spectrogram.
 
-As such, we transform the spectrogram by mapping each column onto a log-frequency basis. These bases are spaced evenly in the mel scale; a mel is equivalent to $c log(1 + f / 700)$ where $c$ is some constant and $f$ is the frequency in Hz. See Figure~\ref{fig:mfsc}, which is the mel-frequency transformation of the spectrogram in Figure~\ref{fig:spectrogram}.
+As such, we transform the spectrogram by mapping each column onto a log-frequency basis. These bases are spaced evenly in the mel scale; a mel is equivalent to $c \log(1 + f / 700)$ where $c$ is some constant and $f$ is the frequency in Hz. See Figure~\ref{fig:mfsc}, which is the mel-frequency transformation of the spectrogram in Figure~\ref{fig:spectrogram}.
 
 
 \begin{figure}
