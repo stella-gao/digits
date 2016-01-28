@@ -3,7 +3,7 @@ We fit neural networks to a subset of the TIDIGITS dataset. These data, collecte
 
  
 
-\subsection{Data preprocessing}
+%\subsection{Data preprocessing}
 We applied a number of transformations to the data prior to analysis:
 \begin{itemize}
 \item \textbf{Normalising} We normalised each of the \texttt{.wav} files to mean 0, standard deviation 1.
@@ -23,6 +23,6 @@ The MFCC can be derived as follows:
 \end{itemize}
 \end{itemize}
 
-Following from \cite{abdel2014convolutional} we use the MFSC features which use the log-energy computed from the mel-frequency spectral coefficients, which preserves locality in frequency and time.
+%Following from \cite{abdel2014convolutional} we use the MFSC features which use the log-energy computed from the mel-frequency spectral coefficients, which preserves locality in frequency and time.
 
-
+\input{features}
