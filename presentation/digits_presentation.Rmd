@@ -50,8 +50,69 @@ Your browser does not support the audio element.
 * Normalising
 
 ## Convolutional Neural Networks
+Recall ANN
 
-## Recurrent Neural Networks
+<center><img src="neural_net2.png"
+	height="270px"/>
+
+</center>
+
+
+* too many parameters
+* overfitting
+* not scalable with large datasets
+
+---
+
+* Local features
+* Translational invariance features (can occur at different position in the image)
+* High-level features composed by low-level features
+
+<center>
+
+
+
+<img src="cnn_w_share.png"
+	height="280px"/>
+	
+## Convolution 
+<center><img src="convolution.png"
+	height="270px"/>
+	
+	
+</center>
+
+
+<div class="columns-2">
+* Receptive Field
+* Stride
+* Padding
+* ReLU: $\max\{0, x\}$
+
+<img src="conv_example.png"
+	height="180px"/>
+</div>
+
+## Max Pooling
+
+* Reduce spatial size of the representation
+* Filter size [2x2], with stride of 2
+* Discard 75 % of the activations
+
+<center><img src="Max_pooling.png"
+	height="270px"/>
+	
+	
+</center>
+
+## Overall Architecture
+
+* Input layer
+* Convolution layer 
+* Fully connected layer
+
+<center><img src="ciaociao.png"
+	height="250px"/>
 
 ## Waveform
 
@@ -290,9 +351,6 @@ rnn_2d_plot_acc
 ```
 </center>
 
-
-
-## References
 
 
 # Thank you!
