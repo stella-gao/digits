@@ -5,7 +5,8 @@ author: Nathan Cunningham, Beniamino Hadj-Amar, Ella Kaye, & Paul Vanetti
 date: 29-01-2016
 output:
   ioslides_presentation:
-
+    mathjax: local
+    self_contained: false
 ---
 
 ## Outline
