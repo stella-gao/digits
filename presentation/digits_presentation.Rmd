@@ -5,22 +5,18 @@ author: Nathan Cunningham, Beniamino Hadj-Amar, Ella Kaye, & Paul Vanetti
 date: 29-01-2016
 output:
   ioslides_presentation:
-    mathjax: local
-    self_contained: false
+    self_contained: true
+    widescreen: true
 ---
 
 ## Outline
 
-- Data
-- Convolutional Neural Networks
-- Recurrent Neural Networks
-- Data Augmentation
-- Results
-- Conclusion
+* Data
+* Convolutional Neural Networks
+* Recurrent Neural Networks
+* Data augmentation
+* Results
 
-## Objective
-
-* Train neural network to recognise spoken digits
 
 ## Data
 
@@ -80,11 +76,11 @@ Your browser does not support the audio element.
 ## Mel-Frequency Basis
 
 <div class="columns-5"> 
- <img src="mel_basis.png" alt="Smiley face" height="250" width="350"> 
- X
- <img src="spectrogram.png" alt="Smiley face" height="250" width="350"> 
- =
- <img src="mfsc.png" alt="Smiley face" height="250" width="350"> 
+ <img src="mel_basis.png" alt="Smiley face" width = 30%> 
+  <img src="x.png" alt="Smiley face" width = 3%> 
+ <img src="spectrogram.png" alt="Smiley face" width = 30%> 
+  <img src="equals.png" alt="Smiley face" width = 3%> 
+ <img src="mfsc.png" alt="Smiley face" width=30%> 
 </div>
 
 # Models
