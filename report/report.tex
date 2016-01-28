@@ -12,7 +12,7 @@
 
 \bibliographystyle{plain}
 
-\title{Neural Networks for Speech Recognition}
+\title{Neural Networks for Spoken Digit Recognition}
 
 
 \author{
@@ -30,16 +30,15 @@ Beniamino Hadj-Amar \\
 }
 
 
-%\nipsfinalcopy % Uncomment for camera-ready version
+\nipsfinalcopy % Uncomment for camera-ready version
 
 
 \begin{document}
 
 \maketitle
 
-
 \begin{abstract}
-Given audio recordings of ten people reading the digits 0 to 9, we trained a neural network on the \texttt{.wav} files and classify the digit being spoken. Following previous research we  converted the audio files into mel-frequency spectral coefficients, producing an image that can be inputted into a 2D convolutional neural network (CNN). We also compare this CNN with a recurrent neural network (RNN).
+Given audio recordings of ten people reading the digits 0 to 9 (and ``oh''), we trained a neural network on the \texttt{.wav} files and classify the digit being spoken. Following previous research we converted the audio files into mel-frequency spectral coefficients, producing an image that can be inputted into a 2D convolutional neural network (CNN). We also compare this CNN with a recurrent neural network (RNN).
 \end{abstract}
 
 
@@ -53,6 +52,7 @@ Given audio recordings of ten people reading the digits 0 to 9, we trained a neu
 
 \input{results}
 
+\small{
 \bibliography{digits_bib}
-
+}
 \end{document}
