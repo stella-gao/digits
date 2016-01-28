@@ -1,0 +1,85 @@
+---
+title: "Convolutional Neural Networks"
+subtitle: "Can you digit?"
+author: Nathan Cunningham, Beniamino Hadj-Amar, Ella Kaye, & Paul Vanetti
+date: 29-01-2016
+output:
+  ioslides_presentation:
+    mathjax: local
+    self_contained: false
+
+---
+
+## Outline
+
+- Data
+- Convolutional Neural Networks
+- 
+
+## TIDIGITS
+
+- 
+
+
+## Adding figures
+
+- PNG or other bitmaps can be included.  SVG can be included if your
+  browser supports it.  This page shows an SVG file.
+
+![workflow](figs/carmen-workflow-crop.svg)
+
+## Figures 2
+
+However, if you want to centre/rescale images, you must switch to
+html tag:
+
+<center><img src="figs/carmen-workflow-crop.svg"
+	height="350px"/></center>
+
+## Adding sounds
+
+Check your browser if it supports your file format. I found (on
+firefox) is that file.mov did not play, but renaming it to file.mp4
+worked. mp4/mov seems best cross-browser.  Here is an example movie;
+see tags for controlling autoplay etc.
+
+<center>
+<video id="sampleMovie1" src="./figs/p11ctrlconv.mov" loop="true" autoplay="true" controls></video>
+</center>
+
+## Adding equations
+
+Mathjax is supported, so with latex syntax you can get inline  \(A = \pi
+\times r^2 \) or separate maths:
+
+\[
+\begin{aligned}
+I_{1} &= \int_{0}^{2*\pi} \sin(x)
+\\
+I_{2} &= \int_{0}^{2*\pi} \cos(x)
+\end{aligned}
+\]
+
+[Further details](https://support.rstudio.com/hc/en-us/articles/200486328-Equations-in-R-Markdown)
+
+## Tables
+
+Simple tables can be included.  More complicated ones could be output
+from xtable() in R:
+
+
+Table Header  | Second Header
+------------- | -------------
+Table Cell    | Cell 2
+Cell 3        | Cell 4
+Cell 5        | Cell 6
+
+
+## Citations
+
+Citations can be included in your talk, with a "References" slide at
+the end.  For example, @Xie2013 and @Gentleman2004.
+
+[documentation](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+
+## References
