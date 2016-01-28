@@ -1,0 +1,16 @@
+We implemented an RNN-based version of the above, which first performs 2D convolutions reducing the size of the spectrogram in the frequency domain. Then, an LSTM is used to iterate through the time domain. The final layer of this LSTM is fed to a fully connected layer reducing this to 11 nodes; the output of these are input to a softmax function yielding a probability distribution over the categories.
+
+The architecture of the convolution component which preceeds the LSTM is:
+
+\begin{enumerate}
+\item 2x2 convolution
+\item 2x2 convolution
+\item 2x4 max-pooling
+\item five of
+\begin{enumerate}
+\item 2x2 convolution
+\item 2x1 max pooling
+\end{enumerate}
+\end{enumerate}
+
+at which point the frequency domain has been reduced by a factor of approximately $2^6$ and the time domain by a factor of 4.
