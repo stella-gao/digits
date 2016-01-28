@@ -43,11 +43,36 @@ Your browser does not support the audio element.
 </audio> 
 </center>
 
-## Data pre-processing
+## Waveform
 
-* Cropping silence
-* Padding
-* Normalising
+<div class="columns-2"> 
+* raw signal
+* 8000 Hz
+* cropped and centered
+
+ <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
+</div>
+
+
+## Spectrogram
+
+<div class="columns-2"> 
+ <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
+ <img src="spectrogram.png" alt="Smiley face" height="400" width="400"> 
+</div>
+
+
+
+## Mel-Frequency Basis
+
+<div class="columns-5"> 
+ <img src="mel_basis.png" alt="Smiley face" width = 30%> 
+  <img src="x.png" alt="Smiley face" width = 3%> 
+ <img src="spectrogram.png" alt="Smiley face" width = 30%> 
+  <img src="equals.png" alt="Smiley face" width = 3%> 
+ <img src="mfsc.png" alt="Smiley face" width=30%> 
+</div>
+
 
 ## Convolutional Neural Networks
 Recall ANN
@@ -114,35 +139,6 @@ Recall ANN
 <center><img src="ciaociao.png"
 	height="250px"/>
 
-## Waveform
-
-<div class="columns-2"> 
-* raw signal
-* 8000 Hz
-* cropped and centered
-
- <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
-</div>
-
-
-## Spectrogram
-
-<div class="columns-2"> 
- <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
- <img src="spectrogram.png" alt="Smiley face" height="400" width="400"> 
-</div>
-
-
-
-## Mel-Frequency Basis
-
-<div class="columns-5"> 
- <img src="mel_basis.png" alt="Smiley face" width = 30%> 
-  <img src="x.png" alt="Smiley face" width = 3%> 
- <img src="spectrogram.png" alt="Smiley face" width = 30%> 
-  <img src="equals.png" alt="Smiley face" width = 3%> 
- <img src="mfsc.png" alt="Smiley face" width=30%> 
-</div>
 
 # Models
 
