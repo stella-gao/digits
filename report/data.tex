@@ -1,13 +1,12 @@
 \section{Data}
-We fit neural networks to a subset of the TIDIGITS dataset. These data, collected by Texas Instruments, contain audio files of over 300 speakers reciting the digits "zero" (and "oh") through to "nine" a number of times and in a variety of combinations. The dataset includes men, women, and children speaking in a number of dialects. The subset we used includes just ten speakers, five men and five women, who repeat each of digit, in isolation, just twice. While the data were originally recorded at 20kHz, our subset is compressed to 8kHz.
-We split the data into a training set (consisting of three male and three female speakers) and a test set (two male and two female). In all, we trained our model on 132 samples and assessed our results on 88 samples.
+We fit neural networks to a subset of the TIDIGITS dataset. These data, collected by Texas Instruments, contain audio files of over 300 speakers reciting the digits "zero" (and ``oh'') through to ``nine'' a number of times and in a variety of combinations. The dataset includes men, women, and children speaking in a range of accents. The subset we used includes just ten speakers, five men and five women, who repeat each of digit, in isolation, just twice, for ww recorded samples per speaker. While the data were originally recorded at 20kHz, our subset is compressed to 8kHz. We split the data into a training set (consisting of three male and three female speakers) and a test set (two male and two female). In all, this gives 132 samples in the training set and 88 samples for the test set.
 
  
 
 \subsection{Data preprocessing}
-We applied a number of transformations to the data prior to analysis
+We applied a number of transformations to the data prior to analysis:
 \begin{itemize}
-\item \textbf{Normalising} We normalised each of the $.wav$ files to mean 0, standard deviation 1.
+\item \textbf{Normalising} We normalised each of the \texttt{.wav} files to mean 0, standard deviation 1.
 
 \item \textbf{Cropping and padding} As the data were not uniformly padded with silence, we cropped each recording to remove silence at both the beginning and end of the audio file. We then padded the audio files with silence at each end to ensure the files were of the same length with the signal centred in time.
 
@@ -22,7 +21,6 @@ The MFCC can be derived as follows:
 \item Take the discrete cosine transformation of these
 \item The MFCC are the amplitudes of the resulting spectrum.
 \end{itemize}
-\item \textbf{•}
 \end{itemize}
 
 Following from \cite{abdel2014convolutional} we use the MFSC features which use the log-energy computed from the mel-frequency spectral coefficients, which preserves locality in frequency and time.
