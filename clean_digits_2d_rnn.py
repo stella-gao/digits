@@ -13,6 +13,7 @@ from keras.layers.core import Dense, Dropout, Activation, Permute, Reshape
 from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import LSTM
 from keras.datasets import imdb
+from keras.optimizers import SGD
 
 import crop
 import datasets.clean_digits
@@ -24,7 +25,7 @@ window_step = fft_size // 8
 num_filters = 128
 fs = 8000
 
-batch_size = 8
+batch_size = 132
 
 nb_classes = 11
 nb_epoch = 100
@@ -138,7 +139,8 @@ model.add(Activation('softmax'))
 print(model.summary())
 
 # try using different optimizers and different optimizer configs
-model.compile(loss='categorical_crossentropy', optimizer='adadelta')
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd)
 
 print("Train...")
 model.fit(X_train, Y_train, batch_size=batch_size, nb_epoch=nb_epoch,
