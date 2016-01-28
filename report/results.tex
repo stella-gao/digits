@@ -31,3 +31,20 @@ LOOCV on the augmented training set faced similar issues as on the original set;
 We also explored augmenting the original dataset by adding some white noise to the background of the audio signal, but this did not make any appreciable difference to the test scores, likely because the original audio files were all recorded in controlled settings, so there was no noise in the test set.
 
 Since our classifer was on occasion producing very high losses, we explored the possibility that this might be because the learning rate was too high, and so ran our model again with the but optimising with stochastic gradient descent (SGD), rather than adadelta, and running for 20 rather 12 epochs. Applying LOOCV on the un-augmented training set resulted in a test accuracy of 0.8636. As with LOOCV using adadelta, the test accuracy varied greatly in each fold, ranging from 0.4545 to 1, though unlike the previous case, even its worse performance was a significant improvement on random guessing. An area of further research would be to experiment with the tuning parameters of SGD (learning rate, momentum and decay) to see if we can reduce the range and improve the average test accuracy. It would also be interesting to examine the audio files and mfsc representation of the test samples in the folds where the test accuracy was low to determine whether there is anything in particular about those speakers which makes their spoken digits harder to classify. 
+
+\subsection{Recurrent Neural Network}
+
+The RNN gave a test accuracy of 0.8864, see Figure~\ref{fig:2d_rnn_acc}. This is comparable to the results we obtained using the CNN. We did not investigate the performance of the RNN as thoroughly as that of the CNN; it would be interesting to this more thoroughly in the future.
+
+Given the small sample size and the variability of results between training attemps it seems difficult to declare a clear winner in terms of performance.
+
+\begin{figure}[h]
+\begin{center}
+%\framebox[4.0in]{$\;$}
+%\fbox{\rule[-.5cm]{0cm}{4cm} 
+\includegraphics[height = 4in, width = 4in]{rnn_2d_plot_acc.pdf}
+%\rule[-.5cm]{4cm}{0cm}}
+\end{center}
+\caption{Validation (red) and test (green) accuracy for the RNN on one run, with unaugmented data.}
+\label{fig:2d_rnn_acc}
+\end{figure}
