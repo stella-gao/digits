@@ -59,7 +59,8 @@ Each layer uses ReLU for the activation, except the final classification later, 
 - ran six times
   - 5 results in 0.875-0.9432
   - 1 result of 0.0909
-  
+
+<center>  
 ```{r, echo=FALSE, fig.height=4}
 library(ggplot2)
 
@@ -83,7 +84,7 @@ cnn_2d_plot_acc <-  cnn_2d_plot_acc + geom_line() + geom_point() + theme_bw() +
   scale_color_brewer(palette = "Dark2" )
 cnn_2d_plot_acc
 ```
-
+</center>
 
 ## Cross-Validation
 - LOOCV
@@ -108,7 +109,8 @@ cnn_2d_plot_acc
 - One run on unaugmented data using SGD optimiser and 100 epochs
 - Test accuracy of 0.8864
 
-```{r, echo=FALSE, fig.height=4}
+<center>
+```{r, echo=FALSE, fig.width=7, fig.height=4}
 rnn_2d_results <- data.frame(
   epoch = rep(1:100, each=4),
   values = c(
@@ -226,7 +228,7 @@ rnn_2d_plot_acc <-  rnn_2d_plot_acc + geom_line() + geom_point() + theme_bw() +
 rnn_2d_plot_acc
 
 ```
-
+</center>
 
 
 ## Adding figures
