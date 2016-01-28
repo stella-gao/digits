@@ -5,7 +5,12 @@ author: Nathan Cunningham, Beniamino Hadj-Amar, Ella Kaye, & Paul Vanetti
 date: 29-01-2016
 output:
   ioslides_presentation:
+<<<<<<< HEAD
+    mathjax: local
+    self_contained: false
+=======
     self_contained: true
+>>>>>>> 3369dd1ee1d6dcc8391f4093ec87f4ae032968b5
     widescreen: true
 ---
 
@@ -295,4 +300,8 @@ rnn_2d_plot_acc
 ## References
 
 
+<<<<<<< HEAD
 # Thank you!
+=======
+# Thank you!
+>>>>>>> 3369dd1ee1d6dcc8391f4093ec87f4ae032968b5
