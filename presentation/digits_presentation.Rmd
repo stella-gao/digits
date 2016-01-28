@@ -1,12 +1,10 @@
 ---
-title: "Convolutional Neural Networks"
-subtitle: "Can you digit?"
+title: "Can you digit?"
+subtitle: "Convolutional neural networks for spoken digit recognition"
 author: Nathan Cunningham, Beniamino Hadj-Amar, Ella Kaye, & Paul Vanetti
 date: 29-01-2016
 output:
   ioslides_presentation:
-    mathjax: local
-    self_contained: false
 
 ---
 
@@ -14,15 +12,79 @@ output:
 
 - Data
 - Convolutional Neural Networks
-- 
+- Recurrent Neural Networks
+- Data Augmentation
+- Results
+- Conclusion
 
-## TIDIGITS
+## Objective
 
-## Audio examples
+* Train neural network to recognise spoken digits
+
+## Data
+
+* TIDIGITS dataset
+    + Recording of >300 people speaking the digits 0-9
+    + Split between men, women, and children
+    + Digits are repeated a number of times and in a number of combinations
+* We use subsample of 10 speakers: 5 male, 5 female
+    + Each person repeats every digit twice
+    + Training set: 6 speakers (3 male and 3 female)
+    + Test set: 4 speakers (2 male and 2 female)
+    + Model trained on 132 sample audio files, tests on 88
 
 <center>
-<video id="FAC_1A" src="./FAC_1A" loop="true" autoplay="true" controls></video>
+<audio controls>
+  <source src="./wav_files/FEA_7A.wav" type="audio/wav" autoplay="false">
+Your browser does not support the audio element.
+</audio> 
 </center>
+<center>
+ <audio controls>
+  <source src="./wav_files/MBD_3B.wav" type="audio/wav" autoplay="false">
+Your browser does not support the audio element.
+</audio> 
+</center>
+
+## Data pre-processing
+
+* Cropping silence
+* Padding
+* Normalising
+
+## Convolutional Neural Networks
+
+## Recurrent Neural Networks
+
+## Waveform
+
+<div class="columns-2"> 
+* raw signal
+* 8000 Hz
+* cropped and centered
+
+ <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
+</div>
+
+
+## Spectrogram
+
+<div class="columns-2"> 
+ <img src="waveform.png" alt="Smiley face" height="400" width="400"> 
+ <img src="spectrogram.png" alt="Smiley face" height="400" width="400"> 
+</div>
+
+
+
+## Mel-Frequency Basis
+
+<div class="columns-5"> 
+ <img src="mel_basis.png" alt="Smiley face" height="250" width="350"> 
+ X
+ <img src="spectrogram.png" alt="Smiley face" height="250" width="350"> 
+ =
+ <img src="mfsc.png" alt="Smiley face" height="250" width="350"> 
+</div>
 
 # Models
 
@@ -60,7 +122,7 @@ Each layer uses ReLU for the activation, except the final classification later, 
   - 5 results in 0.875-0.9432
   - 1 result of 0.0909
 
-<center>  
+<center>
 ```{r, echo=FALSE, fig.height=4}
 library(ggplot2)
 
@@ -81,7 +143,8 @@ plot_df <- subset(cnn_2d_results, key == "acc" | key == "val_acc")
 cnn_2d_plot_acc <-  ggplot(data = plot_df, aes(x = epoch, y = values, 
                                             group = key, colour = key))
 cnn_2d_plot_acc <-  cnn_2d_plot_acc + geom_line() + geom_point() + theme_bw() +
-  scale_color_brewer(palette = "Dark2" )
+  scale_color_brewer(palette = "Dark2" ) +
+  theme(panel.background = element_rect(fill = "transparent",colour = NA))
 cnn_2d_plot_acc
 ```
 </center>
@@ -110,7 +173,7 @@ cnn_2d_plot_acc
 - Test accuracy of 0.8864
 
 <center>
-```{r, echo=FALSE, fig.width=7, fig.height=4}
+```{r, echo=FALSE, fig.height=4}
 rnn_2d_results <- data.frame(
   epoch = rep(1:100, each=4),
   values = c(
@@ -231,65 +294,8 @@ rnn_2d_plot_acc
 </center>
 
 
-## Adding figures
-
-- PNG or other bitmaps can be included.  SVG can be included if your
-  browser supports it.  This page shows an SVG file.
-
-![workflow](figs/carmen-workflow-crop.svg)
-
-## Figures 2
-
-However, if you want to centre/rescale images, you must switch to
-html tag:
-
-<center><img src="figs/carmen-workflow-crop.svg"
-	height="350px"/></center>
-
-## Adding sounds
-
-Check your browser if it supports your file format. I found (on
-firefox) is that file.mov did not play, but renaming it to file.mp4
-worked. mp4/mov seems best cross-browser.  Here is an example movie;
-see tags for controlling autoplay etc.
-
-<center>
-<video id="sampleMovie1" src="./figs/p11ctrlconv.mov" loop="true" autoplay="true" controls></video>
-</center>
-
-## Adding equations
-
-Mathjax is supported, so with latex syntax you can get inline  \(A = \pi
-\times r^2 \) or separate maths:
-
-\[
-\begin{aligned}
-I_{1} &= \int_{0}^{2*\pi} \sin(x)
-\\
-I_{2} &= \int_{0}^{2*\pi} \cos(x)
-\end{aligned}
-\]
-
-[Further details](https://support.rstudio.com/hc/en-us/articles/200486328-Equations-in-R-Markdown)
-
-## Tables
-
-Simple tables can be included.  More complicated ones could be output
-from xtable() in R:
-
-
-Table Header  | Second Header
-------------- | -------------
-Table Cell    | Cell 2
-Cell 3        | Cell 4
-Cell 5        | Cell 6
-
-
-## Citations
-
-Citations can be included in your talk, with a "References" slide at
-the end.  For example, @Xie2013 and @Gentleman2004.
-
-[documentation](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
 
 ## References
+
+
+# Thank you!
