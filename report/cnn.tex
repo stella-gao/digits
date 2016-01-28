@@ -1,51 +1,5 @@
-\documentclass{article} % For LaTeX2e
-
-\usepackage{graphicx}% Include figure files
-\usepackage{nips15submit_e,times}
-\usepackage{hyperref}
-\usepackage{url}
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-% \usepackage{fullpage}
-%\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
 
 
-\title{Convolutional Neural Networks for Speech Recognition}
-
-
-\author{
-Paul Vanetti \\
-\texttt{} \\
-\And
-Ella Kaye \\
-\texttt{} \\
-\And
-Nathan Cunningham \\
-\texttt{} \\
-\And
-Beniamino Hadj-Amar \\
-\texttt{}
-}
-
-\newcommand{\fix}{\marginpar{FIX}}
-\newcommand{\new}{\marginpar{NEW}}
-
-\nipsfinalcopy % Uncomment for camera-ready version
-
-
-\begin{document}
-
-\maketitle
-
-\begin{abstract}
-For more NN go to the cinema and watch Harry Potter.  For more NN go to the cinema and watch Harry Potter. For more NN go to the cinema and watch Harry Potter. 
-Bla bla bla bla. Potter. This project does not make any sense. For more NN go to the cinema and watch Harry Potter. Bla bla bla bla. Potter. This project does not make any sense. For more NN go to the cinema and watch Harry Potter. Bla bla bla bla. Potter. This project does not make any sense. For more NN go to the cinema and watch Harry Potter.
-\end{abstract}
-
-
-\vspace{0.7cm}
 \section{Convolutional Neural Networks}
 Convolutional Neural Network (CNN) is a particular type of Artificial Neural Network (ANN). Similarly to ANN, it receives an input and returns an output, through a series of hidden layers. Furthermore, it learns its weights and biases by minimising an error function, and performing backpropagation. 
 
@@ -73,10 +27,3 @@ Building an efficient CNN involves a correct tuning of different parameters.
 \\Firstly, the \textit{depth} of convolution layers has to be chosen; it will control the number of neurons that connect to the same region of the input volume. 
 Secondly, we need to fix the \textit{receptive field}, which is the size of the local region of the input that we will convolve. Thirdly, we have to specify the \textit{stride} with which the receptive field will look at the input image; the bigger the stride, the smaller the output volume. Finally, sometimes it is necessary to pad the input volume with zeros along the borders; so we need also to specify this parameter, called \textit{padding} that allow us to control the spatial size of the output volume. 
 
-
-
-
-
-
-	
-\end{document}
