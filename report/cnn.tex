@@ -1,4 +1,4 @@
-\section{Convolutional Neural Networks}
+\section{Convolutional Neural Networks} \label{sec:cnn}
 Convolutional Neural Networks (CNN) are a particular type of Artificial Neural Network (ANN). Similarly to ANNs, it receives an input and returns an output, through a series of hidden layers. Furthermore, it learns its weights and biases by minimising an error function, and performing backpropagation. 
 
 In contrast to ANNs, where each input is fully connected with neurons of the next layer, CNN instead has sparse connectivity. In fact, each neuron in the hidden layer is connected only to a local part of the input. In high-dimensional scenario full connectivity would be wasteful and the extremely large number of parameters would rapidly lead to overfitting. Moreover, CNN make the assumption that the inputs are images, constraining the architecture of the layers in 3 dimensions: \textit{width}, \textit{height}, \textit{depth}. An intuition of the structure is given below:

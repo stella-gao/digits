@@ -1,4 +1,4 @@
-\section{Models}
+\section{Models} \label{sec:models}
 \subsection{Convolution Neural Network}
 Our CNN model consists of eleven layers: two 2D convolution layers followed by a max pooling layer, then three alternating 2D convolution layers and max pooling layer pairs, then two dense layers at the end. In each layer, we used rectified linear units as the activation (ReLU), with the exception of the final categorisation layer, for which we used a softmax activation. 
  
@@ -6,7 +6,7 @@ Our CNN model consists of eleven layers: two 2D convolution layers followed by a
 
 \input{rnn}
 
-\section{Results}
+\section{Results} \label{sec:results}
 \subsection{Convolution Neural Network}
 We split our data into training and test sets, using six speakers for training (three male, three female) and four speakers for the test set (two male, two female). This lead to 132 samples in the training set and 88 samples in the test set. We trained the CNN using a batch size of four. For our loss function, we minimised the categorical-crossentropy.
 
